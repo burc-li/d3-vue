@@ -1,0 +1,32 @@
+{
+  // 转换javascript语法，npm install babel-loader @babel/core @babel/preset-env -D
+  "presets": ["@babel/preset-env"],
+
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": false,
+        "helpers": true,
+        "regenerator": true,
+        "version": "7.0.0-beta.0"
+      }
+    ],
+
+    // Vue支持 jsx语法 ，npm install babel-plugin-transform-vue-jsx -D
+    "transform-vue-jsx",
+
+    // elementui 按需引入，npm install babel-plugin-component -D
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ],
+
+    // 路由懒加载，npm install babel-plugin-syntax-dynamic-import babel-plugin-transform-vue-jsx babel-helper-vue-jsx-merge-props -D
+    "syntax-dynamic-import"
+  ]
+}

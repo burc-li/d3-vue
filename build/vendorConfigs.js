@@ -1,0 +1,7 @@
+require('vue')
+require('vuex')
+require('vue-router')
+// require('element-ui')
+// require('element-ui/lib/index.js')
+require('axios')
+require('lodash')

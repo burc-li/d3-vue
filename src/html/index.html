@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- 开发环境生产环境都已使用 copy-webpack-plugin 将 statics 目录 拷贝到 打包目录，所以可以使用相对路径 -->
+    <!-- 相对路径 还可以兼容非根目录部署 -->
+    <link
+      rel="shortcut icon"
+      href="<%= JSON.parse(htmlWebpackPlugin.options.config.basePath) %>statics/ico/favicon.ico"
+    />
+
+    <title><%= JSON.parse(htmlWebpackPlugin.options.config.title) %></title>
+
+    <!-- 开发环境引入dll 动态链接库   生产环境不引入 -->
+    <% if(htmlWebpackPlugin.options.config.NODE_ENV === JSON.stringify("dev")){ %>
+    <script src="../../dll/vendors.dll.js"></script>
+    <% } %>
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
